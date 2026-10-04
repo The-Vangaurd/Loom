@@ -1,0 +1,4 @@
+{
+  "extends": "@erp/tsconfig/react-library.json",
+  "include": ["src"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@erp/schemas",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@erp/tsconfig": "workspace:*",
+    "typescript": "^5.8.2"
+  }
+}

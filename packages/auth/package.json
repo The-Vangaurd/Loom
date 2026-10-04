@@ -1,0 +1,16 @@
+{
+  "name": "@erp/auth",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@erp/schemas": "workspace:*"
+  },
+  "devDependencies": {
+    "@erp/tsconfig": "workspace:*",
+    "@types/react": "^19.0.8",
+    "react": "^19.0.0",
+    "typescript": "^5.8.2"
+  }
+}

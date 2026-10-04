@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Get Started</title>
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container" id="container">
+    <!-- Get Started Form (revealed when active) -->
+    <div class="form-container get-started-container">
+      <form action="#" onsubmit="event.preventDefault();">
+        <h1>Get Started</h1>
+        <div class="social-container">
+          <a href="#" class="social" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+          <a href="#" class="social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <span>Get started with Email & Password</span>
+        <label for="signup-name" class="sr-only">Name</label>
+        <input type="text" id="signup-name" placeholder="Enter Name" autocomplete="name" required>
+        <label for="signup-email" class="sr-only">Email</label>
+        <input type="email" id="signup-email" placeholder="Enter E-mail" autocomplete="email" required>
+        <label for="signup-password" class="sr-only">Password</label>
+        <input type="password" id="signup-password" placeholder="Enter Password" autocomplete="new-password" required>
+        <button type="submit" class="btn btn-red liquid-btn">GET STARTED</button>
+      </form>
+    </div>
+
+    <!-- Login Form (matching original left side with Login text) -->
+    <div class="form-container login-container">
+      <form action="#" onsubmit="event.preventDefault();">
+        <h1>Login</h1>
+        <div class="social-container">
+          <a href="#" class="social" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+          <a href="#" class="social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <span>Login with Email & Password</span>
+        <label for="signin-email" class="sr-only">E-mail</label>
+        <input type="email" id="signin-email" placeholder="Enter E-mail" autocomplete="username" enterkeyhint="next" required>
+        <label for="signin-password" class="sr-only">Password</label>
+        <input type="password" id="signin-password" placeholder="Enter Password" autocomplete="current-password" enterkeyhint="done" required>
+        <a href="#" class="forgot-password">Forget Password?</a>
+        <button type="submit" class="btn btn-red liquid-btn">LOGIN</button>
+      </form>
+    </div>
+
+    <!-- Overlay Container with liquid wave animation -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <!-- Left Overlay (shown when on Get Started form to go back to Login) -->
+        <div class="overlay-panel overlay-left">
+          <h1>Log In to Your Company</h1>
+          <p>Access your organization's workspace and continue managing your enterprise operations</p>
+          <button class="btn btn-ghost liquid-btn" id="signIn">LOGIN</button>
+        </div>
+        <!-- Right Overlay (default state with Get Started) -->
+        <div class="overlay-panel overlay-right">
+          <h1>Create Your ERP</h1>
+          <p>Sign up to start building and streamlining your enterprise workflows</p>
+          <button class="btn btn-ghost liquid-btn" id="signUp">GET STARTED</button>
+        </div>
+      </div>
+      <!-- Liquid wave edge decorator -->
+      <div class="liquid-wave-edge" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

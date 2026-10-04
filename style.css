@@ -1,0 +1,484 @@
+:root {
+  --black: #000000;
+  --periwinkle: #D4DDFF;
+  --platinum: #DEDDDB;
+
+  /* Theme mappings */
+  --bg-body: #DEDDDB;
+  --card-bg: #FFFFFF;
+  --card-form-bg: #FFFFFF;
+  --overlay-bg: #D4DDFF;
+  --text-dark: #000000;
+  --text-muted: #52514F;
+  --input-bg: #F8F8F7;
+  --input-border: rgba(0, 0, 0, 0.12);
+  --input-focus-ring: rgba(212, 221, 255, 0.85);
+
+  /* Glows & Accents */
+  --glow-periwinkle: rgba(212, 221, 255, 0.5);
+  --glow-periwinkle-strong: rgba(212, 221, 255, 0.75);
+  --shadow-deep: rgba(0, 0, 0, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-body);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(212, 221, 255, 0.5) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 24px;
+}
+
+/* Screen reader accessibility utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Main Card Container */
+.container {
+  background-color: var(--card-bg);
+  border-radius: 32px;
+  border: 1px solid rgba(212, 221, 255, 0.18);
+  box-shadow: 
+    0 30px 80px var(--shadow-deep),
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(212, 221, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  width: 1000px;
+  max-width: 94vw;
+  min-height: 600px;
+  z-index: 10;
+  /* Hardware-accelerated smooth corner clipping without subpixel bleed */
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+  transition: box-shadow 0.4s ease;
+}
+
+/* Form Container */
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.8s cubic-bezier(0.68, -0.15, 0.265, 1.15), opacity 0.6s ease;
+}
+
+.form-container form {
+  background-color: var(--card-form-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 55px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.form-container h1 {
+  font-weight: 800;
+  font-size: 40px;
+  color: var(--text-dark);
+  margin-bottom: 18px;
+  letter-spacing: -0.8px;
+}
+
+/* Social Login Icons */
+.social-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.social-container a.social {
+  border: 1.5px solid var(--input-border);
+  border-radius: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--text-dark);
+  font-size: 19px;
+  text-decoration: none;
+  background-color: var(--input-bg);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-container a.social:hover {
+  border-color: var(--black);
+  background-color: var(--black);
+  color: var(--periwinkle);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.social-container a.social:active {
+  transform: scale(0.92);
+}
+
+.social-container a.social:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
+/* Subtitles */
+.form-container span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  letter-spacing: 0.2px;
+}
+
+/* Form Inputs */
+.form-container input {
+  background-color: var(--input-bg);
+  border: 1.5px solid var(--input-border);
+  border-radius: 14px;
+  padding: 15px 22px;
+  margin: 6.5px 0;
+  width: 100%;
+  max-width: 360px;
+  font-family: inherit;
+  font-size: 14.5px;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-container input::placeholder {
+  color: #797775;
+  font-size: 14.5px;
+}
+
+.form-container input:focus {
+  background-color: var(--input-bg);
+  border-color: var(--black);
+  box-shadow: 0 0 0 4px var(--input-focus-ring);
+  transform: scale(1.01);
+}
+
+/* Forget Password Link */
+.forgot-password {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 16px 0 24px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.forgot-password:hover {
+  color: var(--black);
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+/* Action Buttons */
+.btn {
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 54px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease,
+              background 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.96);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
+/* Primary Filled Button */
+.btn-red,
+.btn-primary {
+  border: 1.5px solid var(--black);
+  background: var(--black);
+  color: var(--periwinkle);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.btn-red:hover,
+.btn-primary:hover {
+  background: #171717;
+  color: #FFFFFF;
+  border-color: #171717;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.get-started-container .btn-red,
+.get-started-container .btn-primary {
+  margin-top: 12px;
+}
+
+/* Ghost Button on Overlay */
+.btn-ghost {
+  background-color: transparent;
+  border: 2px solid var(--black);
+  color: var(--black);
+  padding: 15px 54px;
+}
+
+.btn-ghost:hover {
+  background-color: var(--black);
+  color: var(--periwinkle);
+  border-color: var(--black);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
+/* Liquid Ripple Effect */
+.liquid-ripple-span {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(212, 221, 255, 0.45);
+  transform: scale(0);
+  animation: liquidRipple 0.65s linear;
+  pointer-events: none;
+}
+
+.btn-ghost .liquid-ripple-span {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+@keyframes liquidRipple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Left / Right Column Positions */
+.login-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+  opacity: 1;
+}
+
+.get-started-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container.right-panel-active .login-container {
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container.right-panel-active .get-started-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  pointer-events: all;
+}
+
+/* Sliding Overlay Container */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.85s cubic-bezier(0.68, -0.2, 0.265, 1.2);
+  z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  background: linear-gradient(135deg, var(--periwinkle) 0%, #bccbfd 100%);
+  color: var(--text-dark);
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.85s cubic-bezier(0.68, -0.2, 0.265, 1.2);
+}
+
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+/* Liquid Edge Wave on the inner dividing line */
+.liquid-wave-edge {
+  position: absolute;
+  top: -20%;
+  left: -40px;
+  width: 80px;
+  height: 140%;
+  background: radial-gradient(ellipse at center, rgba(212, 221, 255, 0.9) 0%, transparent 70%);
+  filter: blur(14px);
+  pointer-events: none;
+  opacity: 0.85;
+  transition: transform 0.85s cubic-bezier(0.68, -0.2, 0.265, 1.2);
+}
+
+.container.right-panel-active .liquid-wave-edge {
+  left: auto;
+  right: -40px;
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 55px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.85s cubic-bezier(0.68, -0.2, 0.265, 1.2);
+}
+
+.overlay-panel h1 {
+  font-weight: 800;
+  font-size: 44px;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.8px;
+  text-shadow: 0 2px 10px rgba(212, 221, 255, 0.4);
+}
+
+.overlay-panel p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.2px;
+  margin-bottom: 34px;
+  color: #2b2b2b;
+  max-width: 340px;
+}
+
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+
+/* Viewport Height Adjustments for smaller vertical screens */
+@media (max-height: 680px) {
+  .container {
+    min-height: 520px;
+  }
+  .form-container h1, .overlay-panel h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .form-container input {
+    padding: 12px 18px;
+    margin: 4.5px 0;
+  }
+  .overlay-panel p {
+    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .btn {
+    padding: 13px 44px;
+  }
+}
+
+/* Tablet & Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    min-height: 520px;
+    border-radius: 24px;
+  }
+
+  .form-container form {
+    padding: 0 25px;
+  }
+
+  .overlay-panel {
+    padding: 0 25px;
+  }
+
+  .form-container h1 {
+    font-size: 28px;
+  }
+
+  .overlay-panel h1 {
+    font-size: 30px;
+  }
+
+  .form-container input {
+    max-width: 280px;
+    padding: 13px 16px;
+  }
+}

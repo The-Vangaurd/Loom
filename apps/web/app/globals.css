@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light Mode - Stone White (#DEDDDB) Palette */
+  --bg: #DEDDDB;
+  --surface-1: #FFFFFF;
+  --surface-2: #F6F6F5;
+  --surface-3: #ECEBE9;
+  --surface-hover: #F0EFEF;
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+
+  --text-primary: #000000;
+  --text-secondary: #52514F;
+  --text-tertiary: #787774;
+
+  --accent: #D4DDFF;
+  --accent-soft: rgba(212, 221, 255, 0.45);
+  --accent-glow: rgba(212, 221, 255, 0.6);
+  --on-accent: #000000;
+
+  --danger: #DC2626;
+  --danger-soft: rgba(220, 38, 38, 0.10);
+}
+
+.dark {
+  /* Dark Mode - Cod Black (#000000) Palette */
+  --bg: #000000;
+  --surface-1: #0D0D0E;
+  --surface-2: #141416;
+  --surface-3: #1C1C1F;
+  --surface-hover: #232326;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #A9A8A5;
+  --text-tertiary: #7C7B79;
+
+  --accent: #D4DDFF;
+  --accent-soft: rgba(212, 221, 255, 0.12);
+  --accent-glow: rgba(212, 221, 255, 0.20);
+  --on-accent: #000000;
+
+  --danger: #D98082;
+  --danger-soft: rgba(217, 128, 130, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Important headings and key points in Iosevka Charon Mono */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Iosevka Charon Mono', monospace;
+  letter-spacing: -0.01em;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-hover);
+}
