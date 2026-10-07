@@ -35,29 +35,21 @@ export class AppService implements OnModuleInit {
 
       // 2. Check or seed test tenant
       const testTenantId = '00000000-0000-0000-0000-000000000001';
-      const existingTenant = await db
-        .select()
-        .from(schema.tenants)
-        .where(eq(schema.tenants.id, testTenantId))
-        .limit(1);
-
-      if (existingTenant.length === 0) {
+      try {
         await db.execute(
           sql`SELECT create_tenant(${testTenantId}::text, 'Loom Test Workspace'::text, 'loom-test-workspace'::text, ${userId}::text)`
         );
-      } else {
-        // Ensure tenant_users links user to test tenant
-        const existingLink = await db
-          .select()
-          .from(schema.tenantUsers)
-          .where(sql`${schema.tenantUsers.tenantId} = ${testTenantId} AND ${schema.tenantUsers.userId} = ${userId}`)
-          .limit(1);
+      } catch {
+        // Already exists, ignore
+      }
 
-        if (existingLink.length === 0) {
-          await db.execute(
-            sql`INSERT INTO tenant_users (id, tenant_id, user_id, role) VALUES (gen_random_uuid()::text, ${testTenantId}, ${userId}, 'admin') ON CONFLICT DO NOTHING`
-          );
-        }
+      // Ensure tenant_users links user to test tenant
+      try {
+        await db.execute(
+          sql`INSERT INTO tenant_users (id, tenant_id, user_id, role) VALUES (gen_random_uuid()::text, ${testTenantId}, ${userId}, 'admin') ON CONFLICT DO NOTHING`
+        );
+      } catch {
+        // Already linked, ignore
       }
 
       console.log(`[AppService] Test User (test@loom.com / password123) and Tenant (${testTenantId}) ready`);
