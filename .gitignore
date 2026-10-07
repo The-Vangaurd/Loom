@@ -12,6 +12,7 @@ out/
 # Build artifacts
 dist/
 build/
+target/
 *.tsbuildinfo
 
 # Environment variables

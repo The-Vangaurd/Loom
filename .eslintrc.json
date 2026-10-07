@@ -1,0 +1,35 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": "allow-with-description",
+        "ts-nocheck": true,
+        "ts-check": false
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["packages/db/**/*.ts", "apps/api/**/*.ts", "apps/web/app/api/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/ban-ts-comment": "error"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    ".next",
+    "out",
+    "build"
+  ]
+}

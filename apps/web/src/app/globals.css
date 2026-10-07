@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode - Stone White Palette */
+    --bg: #DEDDDB;
+    --surface-1: #FFFFFF;
+    --surface-2: #F6F6F5;
+    --surface-3: #ECEBE9;
+    --surface-hover: #F0EFEF;
+
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.16);
+
+    --text-primary: #000000;
+    --text-secondary: #52514F;
+    --text-tertiary: #787774;
+
+    --accent: #D4DDFF;
+    --accent-soft: rgba(212, 221, 255, 0.45);
+    --accent-glow: rgba(212, 221, 255, 0.6);
+    --on-accent: #000000;
+
+    --danger: #DC2626;
+    --danger-soft: rgba(220, 38, 38, 0.10);
+
+    --primary: #18181B;
+    --primary-foreground: #FAFAFA;
+    --muted: #F4F4F5;
+    --muted-foreground: #71717A;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode - Cod Black Palette */
+    --bg: #000000;
+    --surface-1: #0D0D0E;
+    --surface-2: #141416;
+    --surface-3: #1C1C1F;
+    --surface-hover: #232326;
+
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #A9A8A5;
+    --text-tertiary: #7C7B79;
+
+    --accent: #D4DDFF;
+    --accent-soft: rgba(212, 221, 255, 0.12);
+    --accent-glow: rgba(212, 221, 255, 0.25);
+    --on-accent: #000000;
+
+    --danger: #EF4444;
+    --danger-soft: rgba(239, 68, 68, 0.15);
+
+    --primary: #FAFAFA;
+    --primary-foreground: #18181B;
+    --muted: #27272A;
+    --muted-foreground: #A1A1AA;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
+  }
+}

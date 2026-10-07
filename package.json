@@ -1,16 +1,22 @@
 {
-  "name": "ai-native-erp-monorepo",
+  "name": "loom-erp-monorepo",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "check-types": "turbo run check-types",
+    "typecheck": "turbo run typecheck",
     "test": "turbo run test"
   },
   "devDependencies": {
+    "@tanstack/router-plugin": "^1.168.42",
+    "@types/uuid": "^11.0.0",
     "turbo": "^2.4.4",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "uuid": "^14.0.2"
   },
-  "packageManager": "pnpm@10.5.2"
+  "packageManager": "pnpm@10.5.2",
+  "engines": {
+    "node": ">=22"
+  }
 }
